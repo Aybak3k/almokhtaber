@@ -80,7 +80,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 padding: const EdgeInsets.all(10.0),
                 child: Center(
                   child: Text(
-                    QuestionBank.bank[0].questionBody,
+                    QuestionBank.bank[1].questionBody,
                     textAlign: TextAlign.center,
                     style: const TextStyle(
                       color: color2,

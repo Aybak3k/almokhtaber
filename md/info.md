@@ -12,8 +12,6 @@ ___
 '
 ## Questions
 
-1) 🇹🇷 The sotry of Santa Claus originated in...
-1) 🇪🇬 Where are the 3 pyramids located?
 1) 🇷🇴 Dracula - vlad tepwe - dracul...
 1) 🇮🇳 Oldest Language :- Sanskrit
 1) 🇮🇩 Home to over 700 different languages and dialects
@@ -21,3 +19,4 @@ ___
 1) 🇱🇰 Pearl of the Indian ocean
 1) 🇩🇪 They love to travel the most
 1) 🇺🇸 NEFFEX Band Homeland
+

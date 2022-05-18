@@ -22,9 +22,5 @@ void printQuestionPresentation(Question q){
   List<String> allAnswers = [q.rightAnswer, ...q.wrongAnswers];
   allAnswers.shuffle();
   
-  print(q.questionBody);
-  //  present answers in random order
-      allAnswers.forEach((answer) => 
-        print("- $answer")
-    );
+  
 }

@@ -1,6 +1,6 @@
 // imports
-
 import 'package:flutter/material.dart';
+import 'quiz_brain.dart';
 
 // Vars
 const String appName = "Almokhtaber";
@@ -38,24 +38,31 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   // props && methods
 
-  Widget answerTemplate(String context) {
-    return (Expanded(
-      child: Padding(
-        padding: const EdgeInsets.all(15.0),
-        child: TextButton(
-          style:
-              ButtonStyle(backgroundColor: MaterialStateProperty.all(color3)),
-          child: Text(
-            context,
-            style: const TextStyle(
-              color: color2,
-              fontSize: 17.0,
+  List<Widget> answersTemplate(List<String> allAnswers) {
+    List<Widget> answersWidgets = [];
+    for (final a in allAnswers) {
+      answersWidgets.add(Expanded(
+        child: Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: TextButton(
+            style:
+                ButtonStyle(backgroundColor: MaterialStateProperty.all(color3)),
+            child: Text(
+              a,
+              textAlign: TextAlign.center,
+              style: const TextStyle(
+                color: color2,
+                fontSize: 17.0,
+              ),
             ),
+            onPressed: () {
+              // print(200);
+            },
           ),
-          onPressed: () {},
         ),
-      ),
-    ));
+      ));
+    }
+    return answersWidgets;
   }
 
   @override
@@ -67,15 +74,15 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Expanded(
-              flex: 4,
+            Expanded(
+              flex: 3,
               child: Padding(
-                padding: EdgeInsets.all(10.0),
+                padding: const EdgeInsets.all(10.0),
                 child: Center(
                   child: Text(
-                    "Which are the 3 Pyramids of Egypt located in? 🇪🇬",
+                    QuestionBank.bank[0].questionBody,
                     textAlign: TextAlign.center,
-                    style: TextStyle(
+                    style: const TextStyle(
                       color: color2,
                       fontSize: 20.0,
                     ),
@@ -84,15 +91,24 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
             Expanded(
-              flex: 6,
+              flex: 5,
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  answerTemplate("um.. Cairo?"),
-                  answerTemplate("I heared there's a city called Al-Fayum"),
-                  answerTemplate("duh🙄 ofc it's Giza"),
-                  answerTemplate("How about Al-Haram?"),
-                ],
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: answersTemplate(QuestionBank.getAllAnswers())  // @TODO
+                  ),
+            ),
+            Expanded(
+              flex: 1,
+              child: Padding(
+                padding: const EdgeInsets.all(7.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: const [
+                    // Icon(Icons.check, color: Colors.green),
+                    // Icon(Icons.close, color: Colors.red),
+                    Icon(Icons.question_mark, color: Colors.pink),
+                  ],
+                ),
               ),
             )
           ],

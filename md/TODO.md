@@ -1,20 +1,14 @@
-## Done
+## Next
 
-- [X] (basic) UI
-
-___
-<br><br>
-
-
-## Basic Functionality
-
-1) Questions
-1) Answers...
+- [X] init quiz_brain
+    - init class
+    - connect to main.dart
+- [ ] Create ...Q&A
 
 ___
 <br><br>
 
 
-## Toppings
-
-1) music effects
+## Later
+- shuffle questions order && shuffle answers on answer
+- music effects

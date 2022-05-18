@@ -1,6 +1,5 @@
 ## Ideas
 
-1) unsubmitted questions << just google "amazing facts about $country"
 1) score be stored in local storage
 1) shuffle countries order
 1) show the correct answer if not << who wins the million style

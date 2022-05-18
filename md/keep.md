@@ -35,3 +35,20 @@ Text(
     textAlign: TextAlign.center,
 )
 ```
+___
+
+## late kw
+```dart
+// wtf
+```
+___
+
+## arr.push
+```dart
+void main(){
+  List<int> intArr = [1,2,3,4,5];
+  intArr.addAll([6, 7]);
+  intArr.add(8);
+  print(intArr);
+}
+```

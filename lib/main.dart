@@ -73,7 +73,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 padding: EdgeInsets.all(10.0),
                 child: Center(
                   child: Text(
-                    "Where are the 3 Pyramids of Egypt located?",
+                    "Which are the 3 Pyramids of Egypt located in? 🇪🇬",
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       color: color2,
@@ -88,10 +88,10 @@ class _MyHomePageState extends State<MyHomePage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  answerTemplate('Cairo'),
-                  answerTemplate('Al-Fayum'),
-                  answerTemplate('Giza'),
-                  answerTemplate('Al-Haram'),
+                  answerTemplate("um.. Cairo?"),
+                  answerTemplate("I heared there's a city called Al-Fayum"),
+                  answerTemplate("duh🙄 ofc it's Giza"),
+                  answerTemplate("How about Al-Haram?"),
                 ],
               ),
             )

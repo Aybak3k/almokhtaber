@@ -12,11 +12,10 @@ ___
 '
 ## Questions
 
-1) 🇷🇴 Dracula - vlad tepwe - dracul...
+1) 🇷🇴 Dracula - vlad tepwe - dracul...  // România
 1) 🇮🇳 Oldest Language :- Sanskrit
 1) 🇮🇩 Home to over 700 different languages and dialects
-1) 🇷🇺 home to the tallest statue of a woman : The Motherland Calls 
+1) 🇷🇺 home to the tallest statue of a woman : The Motherland Calls  // Россия🇷🇺
 1) 🇱🇰 Pearl of the Indian ocean
 1) 🇩🇪 They love to travel the most
-1) 🇺🇸 NEFFEX Band Homeland
-
+1) 🇺🇸 NEFFEX Band Homeland  // FIGHT BACK!

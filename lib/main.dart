@@ -7,6 +7,7 @@ const String appName = "Almokhtaber";
 const Color color1 = Color.fromARGB(255, 23, 22, 22);
 const Color color2 = Color.fromARGB(255, 232, 220, 220);
 const Color color3 = Color.fromARGB(255, 14, 116, 199);
+int questionNum = 0;
 
 // App Entry
 void main() => runApp(const MyApp());
@@ -56,7 +57,9 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
             onPressed: () {
-              // print(200);
+              setState(() {
+                questionNum++;
+              });
             },
           ),
         ),
@@ -80,7 +83,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 padding: const EdgeInsets.all(10.0),
                 child: Center(
                   child: Text(
-                    QuestionBank.bank[1].questionBody,
+                    QuestionBank.bank[questionNum].questionBody, // @TODO
                     textAlign: TextAlign.center,
                     style: const TextStyle(
                       color: color2,
@@ -94,7 +97,8 @@ class _MyHomePageState extends State<MyHomePage> {
               flex: 5,
               child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: answersTemplate(QuestionBank.getAllAnswers())  // @TODO
+                  children:
+                      answersTemplate(QuestionBank.getAllAnswers()) // @TODO
                   ),
             ),
             Expanded(

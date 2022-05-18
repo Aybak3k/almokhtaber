@@ -1,16 +1,6 @@
-## Create UI
+## Done
 
-0) Basic
-    - [X] Blackish BG
-    - [X] one col
-1) flex 4.5 : 4.5 : 1
-    1) Question
-        - centered in a row
-        - half the screen
-    2) Choices
-        - 4 choices in 2x2 layout?
-        - blueish BG
-    3) Score Keeper
+- [X] (basic) UI
 
 ___
 <br><br>

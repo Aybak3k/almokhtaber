@@ -26,3 +26,12 @@ title: Text(widget.title)
     // kinda like this.title
     // notice: u calling a method that calls another && arg is passed in line
 ```
+___
+
+## Align Text
+```dart
+Text(
+    'Aybak3k',
+    textAlign: TextAlign.center,
+)
+```

@@ -4,6 +4,8 @@
     // - shuffle 1st
     // return both sep by a loop
   // 2) getNextQuestion()
+    // - check answwer && update score keeper
+    // - but how to get rid of the question mark?
   // - check lenght
   // 3) restart
 
@@ -56,7 +58,7 @@ class QuestionBank {
       tempAnswersArr = [bank[i].rightAnswer, ...bank[i].wrongAnswers];
       bankMap["Answers"]![i] = tempAnswersArr;
     }
-    bankMap["Answers"]!.shuffle();
+    bankMap["Answers"]!.forEach((group) => {group.shuffle()});
 
     return bankMap;
   }

@@ -2,18 +2,20 @@
 import 'package:flutter/material.dart';
 import 'quiz_brain.dart';
 
-// Colors
+// App UI
 const String appName = "Almokhtaber";
-const Color color1 = Color.fromARGB(255, 23, 22, 22);
-const Color color2 = Color.fromARGB(255, 232, 220, 220);
-const Color color3 = Color.fromARGB(255, 14, 116, 199);
+const Map<String, Color> appColors = {
+  "black": Color.fromARGB(255, 23, 22, 22),
+  "white": Color.fromARGB(255, 232, 220, 220),
+  "blue": Color.fromARGB(255, 14, 116, 199)
+};
 
 // Vars
-int questionNum = 0; // @TODO
-Map<String, List> bankMap =
-    QuestionBank.getBank(); // reassign to the same val when restarting the quiz
-List<Icon> scoreKeeper = [];
+int questionNum = 0;
+// reassign to the same val when restarting the quiz
+Map<String, List> bankMap = QuestionBank.getBank();
 // Icon(Icons.question_mark, color: Colors.pink) ??
+List<Icon> scoreIcons = [];
 
 // App Entry
 void main() => runApp(const MyApp());
@@ -47,12 +49,12 @@ class _MyHomePageState extends State<MyHomePage> {
     setState(() {
       if (questionNum == bankMap["Questions"]!.length - 1) {
         questionNum = 0; // @TODO : show result && reset everything
-        scoreKeeper = [];
+        scoreIcons = [];
       } else {
         if (a == bankMap["Correct Answers"]?[questionNum]) {
-          scoreKeeper.add(const Icon(Icons.check, color: Colors.green));
+          scoreIcons.add(const Icon(Icons.check, color: Colors.green));
         } else {
-          scoreKeeper.add(const Icon(Icons.close, color: Colors.red));
+          scoreIcons.add(const Icon(Icons.close, color: Colors.red));
         }
         questionNum++;
       }
@@ -66,19 +68,20 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Padding(
           padding: const EdgeInsets.all(10.0),
           child: TextButton(
-              style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(color3)),
-              onPressed: () {
-                reactToUserAnswer(a);
-              },
-              child: Text(
-                a,
-                textAlign: TextAlign.center,
-                style: const TextStyle(
-                  color: color2,
-                  fontSize: 17.0,
-                ),
-              )),
+            style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all(appColors["blue"])),
+            onPressed: () {
+              reactToUserAnswer(a);
+            },
+            child: Text(
+              a,
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                color: appColors["white"],
+                fontSize: 17.0,
+              ),
+            ),
+          ),
         ),
       ));
     }
@@ -88,7 +91,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: color1,
+      backgroundColor: appColors["black"],
       body: SafeArea(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -101,8 +104,8 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: Text(
                     bankMap["Questions"]?[questionNum], // @TODO
                     textAlign: TextAlign.center,
-                    style: const TextStyle(
-                      color: color2,
+                    style: TextStyle(
+                      color: appColors["white"],
                       fontSize: 20.0,
                     ),
                   ),
@@ -123,7 +126,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 padding: const EdgeInsets.all(7.0),
                 child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: scoreKeeper),
+                    children: scoreIcons),
               ),
             )
           ],

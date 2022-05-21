@@ -3,14 +3,14 @@ class QuizBrain {
   String rightAnswer;
   List<String> wrongAnswers;
 
-  //  prefer_initializing_formals
   QuizBrain(this.questionBody, this.rightAnswer, this.wrongAnswers);
 }
 
 class QuestionBank {
 
 
-  // insteada module XD
+  // data class
+    // insteada module XD
   static List<QuizBrain> bank = [
     QuizBrain(
       "Which are the 3 Pyramids of Egypt located in? 🇪🇬",
@@ -98,7 +98,7 @@ class QuestionBank {
 
 
   // Export Q&A
-  // alt << random access && pop..?
+    // alt << random access && pop..?
   static Map<String, List> getBank() {
     // Shuffle Q&A array
     bank.shuffle();

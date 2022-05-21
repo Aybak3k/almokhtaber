@@ -6,7 +6,7 @@
   // 2) getNextQuestion()
     // - check answwer && update score keeper
     // - but how to get rid of the question mark?
-  // - check lenght
+  // - check length
   // 3) restart
 
 class QuizBrain {
@@ -20,7 +20,6 @@ class QuizBrain {
 
 // insteada module XD:
 class QuestionBank {
-  // int _questionNum = 0;
   static List<QuizBrain> bank = [
     QuizBrain("Which are the 3 Pyramids of Egypt located in? 🇪🇬",
         "How about Al-Haram?", [
@@ -43,22 +42,41 @@ class QuestionBank {
     ]),
   ];
 
+  // random access && pop **BUT** Answers?
   static Map<String, List> getBank() {
+    // Shuffle Q&A array
     bank.shuffle();
 
-    var bankMap = {"Questions": [],
-                   "Answers": List.filled(bank.length, List.filled(4, ""))};
+
+    // Create Map to be returned
+    var bankMap = {
+      "Questions": [],
+      "Correct Answers": [],
+      "All Answers": List.filled(bank.length, List.filled(4, ""))
+      };
     List<String> tempAnswersArr = [];
 
+    // Add Correct_Answers[] to Map
+    for (var b in bank) {
+      bankMap["Correct Answers"]?.add(b.rightAnswer);
+    }
+
+    // Add Questions[] to Map
     for (var b in bank) {
       bankMap["Questions"]?.add(b.questionBody);
     }
 
+    // Add All_Answers[] to Map
     for (var i = 0; i < bank.length; i++) {
       tempAnswersArr = [bank[i].rightAnswer, ...bank[i].wrongAnswers];
-      bankMap["Answers"]![i] = tempAnswersArr;
+      bankMap["All Answers"]![i] = tempAnswersArr;
     }
-    bankMap["Answers"]!.forEach((group) => {group.shuffle()});
+
+    // Shuffle each Answer[] in All_Answers individually
+    for (var group in bankMap["All Answers"]!) {
+      group.shuffle();
+    }
+
 
     return bankMap;
   }

@@ -10,7 +10,10 @@ const Color color3 = Color.fromARGB(255, 14, 116, 199);
 
 // Vars
 int questionNum = 0; // @TODO
-Map<String, List> bank = QuestionBank.getBank();
+Map<String, List> bankMap =
+    QuestionBank.getBank(); // reassign to the same val when restarting the quiz
+List<Icon> scoreKeeper = [];
+// Icon(Icons.question_mark, color: Colors.pink) ??
 
 // App Entry
 void main() => runApp(const MyApp());
@@ -40,7 +43,23 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  // props && methods
+  void reactToUserAnswer(String a) {
+    setState(() {
+      if (questionNum == bankMap["Questions"]!.length - 1) {
+        questionNum = 0; // @TODO : show result && reset everything
+        scoreKeeper = [];
+      } else {
+        if (a == bankMap["Correct Answers"]?[questionNum]) {
+          scoreKeeper.add(const Icon(Icons.check, color: Colors.green));
+        } else {
+          scoreKeeper.add(const Icon(Icons.close, color: Colors.red));
+          print(a);
+          print(bankMap["Correct Answers"]?[questionNum]);
+        }
+        questionNum++;
+      }
+    });
+  }
 
   List<Widget> answersTemplate(List<String> allAnswers) {
     List<Widget> answersWidgets = [];
@@ -49,22 +68,19 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Padding(
           padding: const EdgeInsets.all(10.0),
           child: TextButton(
-            style:
-                ButtonStyle(backgroundColor: MaterialStateProperty.all(color3)),
-            child: Text(
-              a,
-              textAlign: TextAlign.center,
-              style: const TextStyle(
-                color: color2,
-                fontSize: 17.0,
-              ),
-            ),
-            onPressed: () {
-              setState(() {
-                questionNum++; // @TODO
-              });
-            },
-          ),
+              style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(color3)),
+              onPressed: () {
+                reactToUserAnswer(a);
+              },
+              child: Text(
+                a,
+                textAlign: TextAlign.center,
+                style: const TextStyle(
+                  color: color2,
+                  fontSize: 17.0,
+                ),
+              )),
         ),
       ));
     }
@@ -85,7 +101,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 padding: const EdgeInsets.all(10.0),
                 child: Center(
                   child: Text(
-                    bank["Questions"]?[questionNum], // @TODO
+                    bankMap["Questions"]?[questionNum], // @TODO
                     textAlign: TextAlign.center,
                     style: const TextStyle(
                       color: color2,
@@ -100,7 +116,7 @@ class _MyHomePageState extends State<MyHomePage> {
               child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: answersTemplate(
-                      bank["Answers"]?[questionNum]) // @TODO
+                      bankMap["All Answers"]?[questionNum]) // @TODO
                   ),
             ),
             Expanded(
@@ -108,13 +124,8 @@ class _MyHomePageState extends State<MyHomePage> {
               child: Padding(
                 padding: const EdgeInsets.all(7.0),
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: const [
-                    // Icon(Icons.check, color: Colors.green),
-                    // Icon(Icons.close, color: Colors.red),
-                    Icon(Icons.question_mark, color: Colors.pink),
-                  ],
-                ),
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: scoreKeeper),
               ),
             )
           ],

@@ -1,19 +1,29 @@
-## Next
+## UI
 
-- [X] init quiz_brain
-    - init class
-    - connect to main.dart
-- [ ] Create ...Q&A
-- [ ] basic functionality << on click (3 Questions min)
-    - nextQuestion()
-    - if-else >> scoreKeeper.add()
-    - reset back
+- [X] ...Questions @info
+- [ ] app icon
+- [ ] apk index.html
+- [ ] different msgs to different scores
 
 ___
 <br><br>
 
 
-## Later
-- shuffle questions order && shuffle answers on answer
-- music effects
-- red && green answer boxes animation
+## functionality
+
+- [ ] remove Icon(Icons.question_mark) _outside a function_
+- [ ] Last Question
+    - [ ] Last Page Render >> `rightAnswer`..
+
+___
+<br><br>
+
+
+## Extras
+
+<!-- ! really worth if ! with projects like $Last_Pirate -->
+- [ ] sound effects
+- [ ] show the correct answer if not << who wins the million style
+- [ ] score be stored in local storage *AND* sent to me somehow
+- [ ] Time spent
+- [ ] bg accordingly

@@ -1,14 +1,3 @@
-// TODOs
-  // DONE
-    // 1) shuffle Q&A accordingly && provide access to them
-    // - shuffle 1st
-    // return both sep by a loop
-  // 2) getNextQuestion()
-    // - check answwer && update score keeper
-    // - but how to get rid of the question mark?
-  // - check length
-  // 3) restart
-
 class QuizBrain {
   String questionBody;
   String rightAnswer;
@@ -18,35 +7,101 @@ class QuizBrain {
   QuizBrain(this.questionBody, this.rightAnswer, this.wrongAnswers);
 }
 
-// insteada module XD:
 class QuestionBank {
+
+
+  // insteada module XD
   static List<QuizBrain> bank = [
-    QuizBrain("Which are the 3 Pyramids of Egypt located in? 🇪🇬",
-        "How about Al-Haram?", [
-      "um.. Cairo?",
-      "I heared there's a city called Al-Fayum",
-      "duh🙄 ofc it's Giza"
-    ]),
     QuizBrain(
-        "The sotry of Santa Claus originated in...", "IT'S Türkiye 🇹🇷!", [
-      "Harry Poter Homeland.. 🇬🇧🤔",
-      "España 🇪🇸 it is 🥱",
-      "France 🇫🇷!.. I mean the name is french ¯\\_(ツ)_/¯ "
-    ]),
+      "Which are the 3 Pyramids of Egypt located in? 🇪🇬",
+      "How about Al-Haram?",
+      [
+        "um.. Cairo?",
+        "I heared there's a city called Al-Fayum",
+        "duh🙄 ofc it's Giza"
+      ]
+    ),
     QuizBrain(
-        "I'm Vlad Țepeș aka Drakula. WHERE DID I MARCH FROM? Choose Carefully 😈🧛‍♂️",
-        "întoarce-te de unde ai venit 🇷🇴👿", [
-      "S- S- Sp- SPAIN 🇪🇸!, SIR!",
-      "Expecto Patronum! 🛡️🇬🇧",
-      "TÖTE IHN 🔥🇩🇪!"
-    ]),
+      "The sotry of Santa Claus originated in...",
+      "IT'S Türkiye 🇹🇷!",
+      [
+        "Harry Poter Homeland.. 🇬🇧🤔",
+        "España 🇪🇸 it is 🥱",
+        "France 🇫🇷!.. I mean the name is french ¯\\_(ツ)_/¯ "
+      ]
+    ),
+    QuizBrain(
+      "I'm Vlad Țepeș aka Drakula. WHERE DID I MARCH FROM? Choose Carefully 😈🧛‍♂️",
+      "întoarce-te de unde ai venit 🇷🇴👿",
+      [
+        "S- S- Sp- SPAIN 🇪🇸!, SIR!",
+        "Expecto Patronum! 🛡️🇬🇧",
+        "TÖTE IHN 🔥🇩🇪!"
+      ]
+    ),
+    QuizBrain(
+      "I won't give up\nI won't back down\n'Cause nobody's stopping me except for me now 🎸",
+      "NEFFEX🔥 🇺🇸",
+      [
+        "Rammstein🧑‍🎤 🇩🇪",
+        "Blackpink🦹‍♀️ 🇰🇷",
+        "NEONI🎆 🇺🇸"
+      ]
+    ),
+    QuizBrain(
+      "2nd oldest language in the world\nStill spoken today",
+      "Sanskrit 🇮🇳📜",
+      [
+        "Greek 🇬🇷📚",
+        "Farsi 🇮🇷🐎",
+        "Hieroglyph 🇪🇬🏛️"
+      ]
+    ),
+    QuizBrain(
+      "Home to over 700 different languages and dialects 🌐",
+      "Indonesia 🇮🇩🏝️",
+      [
+        "Iceland 🇮🇸🌋",
+        "Wait WHAT?! 😮",
+        "how may langauges exist/ed in 1st place... 🤨"
+      ]
+    ),
+    QuizBrain(
+      "The Motherland Calls\nTallest statue of a woman\n📍🗺️❓",
+      "Россия 🇷🇺",
+      [
+        "Portugal 🇵🇹",
+        "Canada 🇨🇦",
+        "España 🇪🇸"
+      ]
+    ),
+    QuizBrain(
+      "Called The Pearl of the Indian Ocean 🦪♥️",
+      "இலங்கை 🇱🇰",
+      [
+        "*Where's the Indian Ocean to begin with 🤔*",
+        "इंडिया 🇮🇳",
+        "日本 🇯🇵"
+      ]
+    ),
+    QuizBrain(
+      "They love to travel the most 🗺️🧳",
+      "Das sind wir 🦅",
+      [
+        "よく私たちはたくさん旅行します 🎏",
+        "nous aimons certainement beaucoup voyager 🥐",
+        "那很可愛 🐼"
+      ]
+    ),
   ];
 
-  // random access && pop **BUT** Answers?
+
+
+  // Export Q&A
+  // alt << random access && pop..?
   static Map<String, List> getBank() {
     // Shuffle Q&A array
     bank.shuffle();
-
 
     // Create Map to be returned
     var bankMap = {
@@ -77,7 +132,8 @@ class QuestionBank {
       group.shuffle();
     }
 
-
     return bankMap;
   }
+
+
 }

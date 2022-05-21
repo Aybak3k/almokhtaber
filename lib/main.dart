@@ -53,8 +53,6 @@ class _MyHomePageState extends State<MyHomePage> {
           scoreKeeper.add(const Icon(Icons.check, color: Colors.green));
         } else {
           scoreKeeper.add(const Icon(Icons.close, color: Colors.red));
-          print(a);
-          print(bankMap["Correct Answers"]?[questionNum]);
         }
         questionNum++;
       }

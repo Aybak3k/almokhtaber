@@ -22,7 +22,7 @@ ___
 
 <!-- ! really worth if ! with projects like $Last_Pirate -->
 - [ ] apk index.html
-- [ ] remove Icon(Icons.question_mark) _outside a function_...mm
+- [ ] remove `Icon(Icons.question_mark, color: Colors.pink)` _outside a function_...mm
 - [ ] different msgs to different scores
     - You're either the creator (Aybak3k) || really knowledgable
 - [ ] show the correct answer if not << who wins the million style

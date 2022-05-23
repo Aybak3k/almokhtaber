@@ -49,7 +49,7 @@ class QuestionBank {
       ]
     ),
     QuizBrain(
-      "2nd oldest language in the world\nStill spoken today",
+      "The oldest language in the world\nAND still spoken today",
       "Sanskrit 🇮🇳📜",
       [
         "Greek 🇬🇷📚",

@@ -1,6 +1,7 @@
 // imports
 import 'package:flutter/material.dart';
 import 'quiz_brain.dart';
+import 'package:rflutter_alert/rflutter_alert.dart';
 
 // App UI
 const String appName = "Almokhtaber";
@@ -12,10 +13,9 @@ const Map<String, Color> appColors = {
 
 // Vars
 int questionNum = 0;
-// reassign to the same val when restarting the quiz
 Map<String, List> bankMap = QuestionBank.getBank();
-// Icon(Icons.question_mark, color: Colors.pink) ??
 List<Icon> scoreIcons = [];
+int userScore = 0;
 
 // App Entry
 void main() => runApp(const MyApp());
@@ -45,17 +45,60 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  void resetQuiz() {
+    bankMap = QuestionBank.getBank(); // shuffle again
+    scoreIcons = [];
+    questionNum = 0;
+    userScore = 0;
+  }
+
+  void showScoreMsg() {
+    Alert(
+      context: context,
+      title: "Awesome:)",
+      desc: "You scored $userScore out of ${bankMap["Questions"]!.length}",
+      buttons: [
+        DialogButton(
+            color: appColors["blue"],
+            child: Text(
+              'Retake It',
+              style: TextStyle(
+                color: appColors["white"],
+                fontSize: 17.0,
+              ),
+            ),
+            onPressed: () {
+              Navigator.pop(
+                  context); // PROBLEM HERE - how to get the updated context
+            })
+      ],
+    ).show();
+  }
+
+  void controlScore(int biVal) {
+    if (scoreIcons.length < bankMap["Questions"]!.length) {
+      if (biVal == 0) {
+        scoreIcons.add(const Icon(Icons.close, color: Colors.red));
+      } else if (biVal == 1) {
+        scoreIcons.add(const Icon(Icons.check, color: Colors.green));
+        userScore++;
+      }
+    }
+  }
+
   void reactToUserAnswer(String a) {
     setState(() {
-      if (questionNum == bankMap["Questions"]!.length - 1) {
-        questionNum = 0; // @TODO : show result && reset everything
-        scoreIcons = [];
+      // Check Answer
+      if (a == bankMap["Correct Answers"]?[questionNum]) {
+        controlScore(1);
       } else {
-        if (a == bankMap["Correct Answers"]?[questionNum]) {
-          scoreIcons.add(const Icon(Icons.check, color: Colors.green));
-        } else {
-          scoreIcons.add(const Icon(Icons.close, color: Colors.red));
-        }
+        controlScore(0);
+      }
+
+      if (questionNum == bankMap["Questions"]!.length - 1) {
+        showScoreMsg();
+        resetQuiz();
+      } else {
         questionNum++;
       }
     });
@@ -69,7 +112,8 @@ class _MyHomePageState extends State<MyHomePage> {
           padding: const EdgeInsets.all(10.0),
           child: TextButton(
             style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all(appColors["blue"])),
+              backgroundColor: MaterialStateProperty.all(appColors["blue"]),
+            ),
             onPressed: () {
               reactToUserAnswer(a);
             },

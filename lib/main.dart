@@ -2,13 +2,19 @@
 import 'package:flutter/material.dart';
 import 'quiz_brain.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
+import 'package:audioplayers/audioplayers.dart';
 
-// App UI
+// App UI && UX
 const String appName = "Almokhtaber";
 const Map<String, Color> appColors = {
   "black": Color.fromARGB(255, 23, 22, 22),
   "white": Color.fromARGB(255, 232, 220, 220),
   "blue": Color.fromARGB(255, 14, 116, 199)
+};
+final player = AudioCache();
+const Map<String, String> sounds = {
+  "rightChoice": "les-go.mp3",
+  "wrongChoice": "am-ded.mp3"
 };
 
 // Vars
@@ -79,8 +85,10 @@ class _MyHomePageState extends State<MyHomePage> {
     if (scoreIcons.length < bankMap["Questions"]!.length) {
       if (biVal == 0) {
         scoreIcons.add(const Icon(Icons.close, color: Colors.red));
+        player.play(sounds["wrongChoice"].toString());
       } else if (biVal == 1) {
         scoreIcons.add(const Icon(Icons.check, color: Colors.green));
+        player.play(sounds["rightChoice"].toString());
         userScore++;
       }
     }

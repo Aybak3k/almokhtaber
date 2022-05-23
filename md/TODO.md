@@ -12,6 +12,10 @@ ___
 - [ ] navigate to score page +UI
     - [Tut](https://www.javatpoint.com/flutter-navigation-and-routing)
 - [ ] sound effects +UI
+    - pkg: assets_audio_player
+        - [pkg link](https://pub.dev/packages/assets_audio_player)
+        - [tut](https://protocoderspoint.com/assets-audio-player-flutter-example/)
+        - why? >> open then play
     - `.then()`
 
 ___
